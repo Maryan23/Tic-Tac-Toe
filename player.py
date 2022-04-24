@@ -2,11 +2,11 @@ class Player:
     moves_available = [1,2,3,4,5,6,7,8,9]
     
     def show_available_moves(self):
-        """This shows all the available moves before a player makes a move"""
+        """This shows available moves before a player makes a move"""
         print(self.moves_available)   
 
     def move_made(self, move):
-        """This eliminates the already made moves from the moves_available list"""
+        """This removes already made moves from the available moves list"""
         Player.moves_available.remove(move) 
 
     def validate_move(self, move):

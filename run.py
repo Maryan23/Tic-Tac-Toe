@@ -6,7 +6,7 @@ user=Player()
 input_list=[" ", " ", " ", " ", " ", " ", " ", " ", " "]
 
 def show_grid():
-    """The method to draw the board"""
+    """Draws the board"""
     print("\n")
     print(f'  {input_list[0]}  |  {input_list[1]}  |  {input_list[2]}  ')
     print("-"*5+"|"+"-"*5+"|"+"-"*5)
@@ -15,7 +15,7 @@ def show_grid():
     print(f'  {input_list[6]}  |  {input_list[7]}  |  {input_list[8]}  ')
 
 def win_state():
-    """Defines all possible winning alignment of the columns and rows on the board"""
+    """Defines all possible winning arrangement"""
     if input_list[0]==input_list[1] and input_list[1]==input_list[2]:
         if input_list[0] != " ":
             return True
@@ -52,9 +52,9 @@ def win_state():
         return False
 
 def main():
-    print("Welcome to the game.")
-    player1 = input("Player 1 enter your name.")
-    player2 = input("Player 2 enter your name.")
+    print("I see you are here to play :) .")
+    player1 = input("Player 1 Enter your name.")
+    player2 = input("Player 2 Enter your name.")
   
     which_player=True 
     
@@ -71,7 +71,7 @@ def main():
     print(" 7   | 8   | 9   ")   
     print("\n")
 
-    print("     START")
+    print("Let the game begin!")
     while len(user.moves_available)>0:
         value_error=False
         
@@ -79,14 +79,14 @@ def main():
             print(f"\n{player1}:")
             print("Available moves:")
             user.show_available_moves()
-            show_grid() #prints the board on the terminal 
-            print("Player 1, make a move")
+            show_grid() #prints the board
+            print(f"{player1} make a move")
             
             try:
-                slot=int(input()) #Accepts only input of type integer
+                slot=int(input()) #Accepts input of type integer
             except ValueError:
                 value_error=True
-                print("Kindly use numbers 1-9!!") #What is to be displayed once the input iss wrong
+                print("Kindly use numbers 1-9!!") #What is to be shown when input is not an integer!
             
             if value_error==False:
                 if user.validate_move(slot):
@@ -110,7 +110,7 @@ def main():
             print("Available moves:")
             user.show_available_moves()
             show_grid()
-            print("Player 2 make a move.")
+            print(f"{player2} make a move.")
             try:
                 slot=int(input())
             except ValueError:
